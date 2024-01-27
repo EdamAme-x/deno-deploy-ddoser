@@ -1,6 +1,6 @@
 import { Context, Hono } from 'hono';
 import { validator as ZodValidator } from 'hono/validator';
-import { logger } from 'hono/middleware';
+import { cors, logger } from 'hono/middleware';
 import { z } from 'zod';
 import type { L7RequestBody } from './types.ts';
 import { isURL } from './utils/isURL.ts';
@@ -10,6 +10,13 @@ import { createIP } from './utils/createIP.ts';
 import { createParam } from './utils/createParam.ts';
 
 const app = new Hono();
+
+app.use("*", cors(
+    {
+        origin: "*",
+    }
+));
+
 const L7schema = z.object({
     targetUrl: z.string(),
     method: z.enum(["GET", "POST"]),
