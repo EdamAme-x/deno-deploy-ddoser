@@ -1,0 +1,12 @@
+{
+    "tasks": {
+        "start": "deno run -A --unstable index.ts",
+        "dev": "deno run -A --unstable --watch index.ts"
+    },
+    "imports": {
+        "hono": "https://deno.land/x/hono@v3.12.0/mod.ts",
+        "hono/middleware": "https://deno.land/x/hono@v3.12.0/middleware.ts",
+        "hono/validator": "https://deno.land/x/hono@v3.12.0/validator/index.ts",
+        "zod": "https://deno.land/x/zod@v3.16.0/mod.ts"
+    }
+}
